@@ -1,26 +1,27 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 import ChatBotStart from "./Components/ChatBotStart";
 import ChatBotApp from "./Components/ChatBotApp";
 
 export const App = () => {
-  const [isChatting, setIsChatting] = useState(false)
+  const [isChatting, setIsChatting] = useState(false);
 
-  const handStartChat = () =>{
-    setIsChatting(true)
-  }
+  const handleStartChat = () => {
+    setIsChatting(true);
+  };
 
   const handleGoBack = () => {
-    setIsChatting(false)
-  }
+    setIsChatting(false);
+  };
 
   return (
     <div className='container'>
       {isChatting ? (
         <ChatBotApp onGoBack={handleGoBack} />
       ) : (
-        <ChatBotApp onStartChat={handStartChat} />
+        <ChatBotStart onStartChat={handleStartChat} />
       )}
     </div>
-  )
-}
-export default App
+  );
+};
+
+export default App;
